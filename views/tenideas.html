@@ -1,0 +1,27 @@
+
+<h2>10 Ideas A Day</h2>
+
+<ol class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Today's Ideas</a></li>
+  <li role="presentation"><a href="#">All Ideas</a></li>
+  <li role="presentation"><a href="#">Statistics</a></li>
+  <li role="presentation"><a href="#">Categories</a></li>
+</ol>
+
+<ul id="ideas" ng-show="ideas.length" class="list-group" >
+  <li class="list-group-item"><h2>Ideas</h2></li>
+  <li ng-repeat="idea in ideas | reverse" class="list-group-item"><b>{{idea.text}}</b></li>
+</ul>
+
+
+<form>
+	<div class="form-group">
+    	<label for="idea">Record a New Idea</label>
+    	<input class="form-control" id="idea" placeholder="Idea..." ng-model="newIdea">
+  	</div>
+  <button type="submit" ng-click="addIdea(newIdea);newIdea = null;" class="btn btn-default">send</button>
+</form>
+
+
+
+<p class="alert alert-danger" ng-show="err">{{err}}</p>
